@@ -1,0 +1,13 @@
+name: Raidplugin
+version: 1.3
+main: me.jujjka.raidplugin.Raidplugin
+api-version: 1.16
+authors: [ jujjka ]
+description: plugin for raids on Town
+
+commands:
+  raid:
+    description: The main command of the plugin
+
+  raids:
+    description: open plugin menu

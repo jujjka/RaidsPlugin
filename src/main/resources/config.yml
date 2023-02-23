@@ -1,0 +1,6 @@
+RaidsPlugin:
+  time_Preparation: 65
+  time_Remaining: 65
+  time_Protection: 100
+  ratio_Players: 0.5
+  lang: EngLang
