@@ -20,6 +20,7 @@ public class ScrollerInventory{
     public static HashMap<UUID, ScrollerInventory> users = new HashMap<UUID, ScrollerInventory>();
     //Running this will open a paged inventory for the specified player, with the items in the arraylist specified.
     public ScrollerInventory(ArrayList<ItemStack> items, String name, Player p){
+
         this.id = UUID.randomUUID();
 //create new blank page
         Inventory page = getBlankPage(name);

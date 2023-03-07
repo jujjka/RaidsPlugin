@@ -70,8 +70,8 @@ public class EngLang {
         get().set("Hours","§6(Hours) - ");
         get().set("Minutes","§6(Minutes) - ");
         get().set("seconds","§6(Seconds) - ");
-        get().set("TimePrep","§2Preparation started,left - %s");
-        get().set("TimeRemi","§2Raid started, left - %s");
+        get().set("TimePrep","§6Preparation started,left - %s");
+        get().set("TimeRemi","§6Raid started, left - %s");
         get().set("InviteMessages","§6You sent an offer to join the raid");
         get().set("Accept","&2[ACCEPT] |");
         get().set("Decline","§c| [DECLINE]");
@@ -79,7 +79,7 @@ public class EngLang {
         get().set("DeclineMsg","§cYou declined the raid");
         get().set("-MemderRaid","§6You turned down an offer to raid!");
         get().set("StartRaid","§6Town [%s] started a raid on town [%s], %s left before the attack");
-        get().set("OpenRaid","§2Town [%s] is attacking town [%s], %s left before the attack");
+        get().set("OpenRaid","§6Town [%s] is attacking town [%s], %s left before the attack");
         get().set("RaidOтMine","§4You can't attack your town!");
         get().set("ErrorInviteTargetTown","§4This town cannot be invited!");
         get().set("ErrorStartRaidTown","§4One of these townies is being raided!");
@@ -90,11 +90,14 @@ public class EngLang {
         get().set("TownNotExists","§4There is no such town!");
         get().set("OnlyMayor","§4The raid can only be started by the mayor of the town");
         get().set("TownName1", "§6Town ");
+        get().set("Moment","§6%s");
         get().set("OnlyResident","§4You are not a resident of the town!");
         get().set("NotArguments","§4Not enough arguments!");
         get().set("NotActiveRaid","§4You have no active raids!");
         get().set("NotRaid","§4You haven't started the raid yet!");
         get().set("NotMayorOrTown","§4You are not the mayor or you do not have a town!");
+        get().set("TownDontForce","§4The town did not start the raid!");
+        get().set("TownDontOnline","§4One of the townies is not online!");
         get().set("MayorNotOnlile","§4The mayor of the town is offline!");
         get().set("CommandOnlyMayor","§4This command is available only to the mayor!");
         get().set("NotNullTime","§4Time must be greater than 0!");

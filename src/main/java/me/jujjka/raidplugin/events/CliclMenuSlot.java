@@ -32,15 +32,16 @@ public class CliclMenuSlot implements Listener {
                 if(item.getType() != Material.GREEN_STAINED_GLASS && item.getType() != Material.RED_STAINED_GLASS && item.getType() != Material.COMPASS){
 
                     TownyUniverse townyUniverse = TownyUniverse.getInstance();
-                    Town targetTown = townyUniverse.getTown(item.getItemMeta().getDisplayName().substring(8));
+                    Town targetTown = townyUniverse.getTown(item.getItemMeta().getDisplayName().substring(2));
                         Resident resident = townyUniverse.getResident(player.getUniqueId());
                         if(!Raid.getTownsOnRaid().contains(targetTown) && !Raid.getTownsOnRaid().contains(resident.getTown())){
                         List<Town> members = new ArrayList<>();
                         members.add(resident.getTown());
+                        Town senderTown = resident.getTown();
                         Raid raid = new Raid(targetTown.getName(),player, targetTown.getMayor().getPlayer(), targetTown, resident.getTown(), members);
                         raid.createRaid(targetTown.getName(),player, targetTown.getMayor().getPlayer(), targetTown, resident.getTown(), members);
                         String startRaid = LanguageMgr.getLang().getString("StartRaid");
-                        Raid.sendAllMessages(String.format(startRaid, targetTown.getName(), targetTown.getName(), FormaterTime.FormatTime(raid)));
+                        Raid.sendAllMessages(String.format(startRaid,senderTown , targetTown.getName(), FormaterTime.FormatTime(raid)));
                     } else {
                             player.sendMessage(LanguageMgr.getLang().getString("TownAlreadyOnRaid"));
                             player.closeInventory();
@@ -55,7 +56,7 @@ public class CliclMenuSlot implements Listener {
                 if (item.getType() != Material.GREEN_STAINED_GLASS && item.getType() != Material.RED_STAINED_GLASS  && item.getType() != Material.COMPASS) {
                     e.setCancelled(true);
                     TownyUniverse townyUniverse = TownyUniverse.getInstance();
-                    Town targetTown = townyUniverse.getTown(item.getItemMeta().getDisplayName().substring(8));
+                    Town targetTown = townyUniverse.getTown(item.getItemMeta().getDisplayName().substring(2));
                     Resident resident = townyUniverse.getResident(player.getUniqueId());
                     Raid raid = Raid.getRaidByTown(resident.getTown());
                     if(raid!= null){

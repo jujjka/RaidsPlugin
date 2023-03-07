@@ -47,10 +47,9 @@ public class InviteRaidsMenu implements InventoryHolder {
                             if(Raid.getRaidByTown(townPlayer) != null){
                                 Raid raid = Raid.getRaidByTown(townPlayer);
                                 if(!raid.getTargetRaid().equals(town) && !raid.getMembers().contains(town)){
-                                    lore.add(LanguageMgr.getLang().getString("2"));
                                     lore.add(LanguageMgr.getLang().getString("TownElement").formatted(mayorName));
                                     lore.add(LanguageMgr.getLang().getString("InviteElement"));
-                                    item = createItem(LanguageMgr.getLang().getString("TownName1") + TownName, Material.PLAYER_HEAD, lore);
+                                    item = createItem(LanguageMgr.getLang().getString("Moment").formatted(TownName), Material.PLAYER_HEAD, lore);
                                     items.add(item);
                                 }
                             }

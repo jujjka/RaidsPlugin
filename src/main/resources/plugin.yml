@@ -1,5 +1,5 @@
 name: Raidplugin
-version: 1.3
+version: 1.4
 main: me.jujjka.raidplugin.Raidplugin
 api-version: 1.16
 authors: [ jujjka ]

@@ -27,7 +27,7 @@ public class BossBarAttackPREPARATION {
 
     public void createBarr(Raid raid){
         String data = FormaterTime.FormatTime(raid);
-        bossBar = Bukkit.createBossBar(format(ChatColor.GREEN + LanguageMgr.getLang().getString("TimePrep").formatted(FormaterTime.FormatTime(raid))), BarColor.GREEN, BarStyle.SOLID, BarFlag.CREATE_FOG);
+        bossBar = Bukkit.createBossBar(format(LanguageMgr.getLang().getString("TimePrep").formatted(FormaterTime.FormatTime(raid))),BarColor.BLUE, BarStyle.SOLID, BarFlag.CREATE_FOG);
         bossBar.setVisible(true);
     }
     public void removeBarr(){
@@ -49,7 +49,7 @@ public class BossBarAttackPREPARATION {
                     this.cancel();
                 } else {
                     double percentage = time / Raidplugin.getInstance().getConfig().getDouble("RaidsPlugin.time_Preparation");
-                    bossBar.setTitle(ChatColor.GREEN +  LanguageMgr.getLang().getString("TimePrep").formatted(FormaterTime.FormatTime(raid)));
+                    bossBar.setTitle(format(LanguageMgr.getLang().getString("TimePrep").formatted(FormaterTime.FormatTime(raid))));
                     bossBar.setProgress(percentage);
                 }
 

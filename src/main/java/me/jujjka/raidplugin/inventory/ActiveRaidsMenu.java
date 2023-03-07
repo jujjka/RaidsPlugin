@@ -31,7 +31,7 @@ public class ActiveRaidsMenu implements InventoryHolder {
 
             //VERY INCONVENIENT WAY OF LOR
             lore.add(LanguageMgr.getLang().getString("ActiveInventory"));
-            lore.add(LanguageMgr.getLang().getString("1"));
+            lore.add(LanguageMgr.getLang().getString("1").formatted(raid.getTargetRaid().getName()));
             lore.add(LanguageMgr.getLang().getString("2"));
             lore.add(LanguageMgr.getLang().getString("3"));
                 lore.add("§6 - " + raid.getMembers());

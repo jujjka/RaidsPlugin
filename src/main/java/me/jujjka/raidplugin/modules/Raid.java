@@ -77,13 +77,13 @@ public class Raid {
                     if(getPREPARATION() != 0 && isRaidbool()){
                         for(Town town: members){
                             for(Resident resident: town.getResidents()){
-                                if(resident.getPlayer() != null) {
+                                if(resident.getPlayer().isOnline()) {
                                     getBossBarAttackPREPARATION().addPlayerBar(resident.getPlayer());
                                 }
                             }
                         }
                         for(Resident resident: targetTown.getResidents()){
-                            if(resident.getPlayer() != null) {
+                            if(resident.getPlayer().isOnline()) {
                                 getBossBarAttackPREPARATION().addPlayerBar(resident.getPlayer());
                             }
                         }

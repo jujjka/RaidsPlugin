@@ -37,19 +37,13 @@ public class CreateRaid implements CommandExecutor {
                     if (!(args.length == 0)) {
                         /* CREATE RAID COMMAND */
                         if (!args[0].equals("cancel") && !args[0].equals("invite") && !args[0].equals("accept") && !args[0].equals("clone") && !args[0].equals("menu") && !args[0].equals("protect") && !args[0].equals("forcestart") && !args[0].equals("forcecancel")) {
-                            if (!TownyUniverse.getInstance().hasResident(p.getName())) {
-                                p.sendMessage(LanguageMgr.getLang().getString("OnlyResident"));
-                                return false;
-                            }
+                            if (!TownyUniverse.getInstance().hasResident(p.getName())) {p.sendMessage(LanguageMgr.getLang().getString("OnlyResident"));return false;}
                             /* Variables */
                             TownyUniverse townyUniverse = TownyUniverse.getInstance();
                             Resident resident = townyUniverse.getResident(p.getUniqueId());
                             String townTargetName = args[0];
                             /* checks errors */
-                            if (!resident.getTownOrNull().isMayor(resident)) {
-                                p.sendMessage(LanguageMgr.getLang().getString("OnlyMayor"));
-                                return false;
-                            }
+                            if (!resident.getTownOrNull().isMayor(resident)) {p.sendMessage(LanguageMgr.getLang().getString("OnlyMayor"));return false;}
                             if (townyUniverse.getTown(townTargetName) == null) {
                                 p.sendMessage(LanguageMgr.getLang().getString("TownNotExists"));
                                 return false;
@@ -224,25 +218,14 @@ public class CreateRaid implements CommandExecutor {
                             }.runTaskTimer(Raidplugin.getInstance(), 0, 20);
                             /* FORSESTART COMMAND */
                         } else if (args[0].equalsIgnoreCase("forcestart")) {
-                            if (args.length < 2) {
-                                LanguageMgr.getLang().getString("NotArguments");
-                                return false;
-                            }
-                            if (!p.isOp()) {
-                                p.sendMessage(LanguageMgr.getLang().getString("DontOperator"));
-                                return false;
-                            }
+                            if (args.length < 3) {p.sendMessage(LanguageMgr.getLang().getString("NotArguments"));return false;}
+                            if (!p.isOp()) {p.sendMessage(LanguageMgr.getLang().getString("DontOperator"));return false;}
                             TownyUniverse townyUniverse = TownyUniverse.getInstance();
                             String senderTownName = args[1];
                             String targetTownName = args[2];
-                            if (townyUniverse.getTown(senderTownName) == null && townyUniverse.getTown(targetTownName) == null) {
-                                p.sendMessage(LanguageMgr.getLang().getString("TownNotExists"));
-                                return false;
-                            }
-                            if (Raid.getRaidByTown(townyUniverse.getTown(senderTownName)) != null && Raid.getRaidByTown(townyUniverse.getTown(targetTownName)) != null) {
-                                p.sendMessage(LanguageMgr.getLang().getString("ErrorStartRaidTown"));
-                                return false;
-                            }
+                            if (townyUniverse.getTown(senderTownName) == null && townyUniverse.getTown(targetTownName) == null) {p.sendMessage(LanguageMgr.getLang().getString("TownNotExists"));return false;}
+                            if (Raid.getRaidByTown(townyUniverse.getTown(senderTownName)) != null && Raid.getRaidByTown(townyUniverse.getTown(targetTownName)) != null) {p.sendMessage(LanguageMgr.getLang().getString("ErrorStartRaidTown"));return false;}
+                            if (!townyUniverse.getTown(senderTownName).getMayor().isOnline() && !townyUniverse.getTown(targetTownName).getMayor().isOnline()){p.sendMessage(LanguageMgr.getLang().getString("TownDontOnline"));}
                             Town senderTown = townyUniverse.getTown(senderTownName);
                             Town targetTown = townyUniverse.getTown(targetTownName);
                             List<Town> members = new ArrayList<>();
@@ -253,6 +236,7 @@ public class CreateRaid implements CommandExecutor {
                             Raid.sendAllMessages(String.format(startRaid, senderTown.getName(), targetTown.getName()));
                             /* FORSECANCEL COMMAND */
                         } else if (args[0].equalsIgnoreCase("forcecancel")) {
+                            if (args.length < 2) {p.sendMessage(LanguageMgr.getLang().getString("NotArguments"));return false;}
                             if (!p.isOp()) {
                                 p.sendMessage(LanguageMgr.getLang().getString("DontOperator"));
                                 return false;
@@ -264,7 +248,7 @@ public class CreateRaid implements CommandExecutor {
                                 return false;
                             }
                             if (Raid.getRaidByTown(townyUniverse.getTown(senderTownName)) == null) {
-                                p.sendMessage(LanguageMgr.getLang().getString("DontStartRAIDbyTown"));
+                                p.sendMessage(LanguageMgr.getLang().getString("TownDontForce"));
                                 return false;
                             }
                             Town senderTown = townyUniverse.getTown(senderTownName);

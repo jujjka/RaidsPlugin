@@ -1,5 +1,6 @@
 package me.jujjka.raidplugin;
 
+import me.jujjka.raidplugin.commands.Completer;
 import me.jujjka.raidplugin.commands.CreateRaid;
 import me.jujjka.raidplugin.commands.Raids;
 import me.jujjka.raidplugin.events.*;
@@ -18,17 +19,16 @@ public final class Raidplugin extends JavaPlugin{
     public void onEnable() {
 
             plugin = this;
-
-            //CONSOLE MESSAGES
+        /* console message */
             this.getLogger().info("====================      RaidPlugin     ========================");
             this.getLogger().info("Version: " + getDescription().getVersion());
             this.getLogger().info("Author: " + getDescription().getAuthors());
             this.getLogger().info("====================      RaidPlugin     ========================");
-
-            //COMMANDS
+        /* commands */
             getCommand("raid").setExecutor(new CreateRaid());
+            getCommand("raid").setTabCompleter(new Completer());
             getCommand("raids").setExecutor(new Raids());
-            //EVENTS
+        /* events */
             getServer().getPluginManager().registerEvents(new ClickMenu(), this);
             getServer().getPluginManager().registerEvents(new SwitchEvents(), this);
             getServer().getPluginManager().registerEvents(new ClickPage(), this);
@@ -36,13 +36,12 @@ public final class Raidplugin extends JavaPlugin{
             getServer().getPluginManager().registerEvents(new PvpEventTrg(), this);
             getServer().getPluginManager().registerEvents(new CliclMenuSlot(), this);
             getServer().getPluginManager().registerEvents(new PlayerLeftTown(), this);
-            //Files
+        /* files */
             this.getConfig().options().copyDefaults();
             this.saveDefaultConfig();
             EngLang.setupMessages();
             RuLang.setupMessages();
-
-            //bStats
+        /* bStats */
             int pluginId = 17774; // <-- Replace with the id of your plugin!
             Metrics metrics = new Metrics(this, pluginId);
     }

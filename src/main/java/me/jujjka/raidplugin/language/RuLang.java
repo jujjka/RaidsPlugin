@@ -70,17 +70,17 @@ public class RuLang {
         get().set("9"," --------------------");
         get().set("10","       §6Осталось - ");
         //Time
-        get().set("Hours","(Часов) - ");
-        get().set("Minutes","(Минут) - ");
-        get().set("seconds","(Секунд) - ");
+        get().set("Hours","§6(Часов) - ");
+        get().set("Minutes","§6(Минут) - ");
+        get().set("seconds","§6(Секунд) - ");
         //Messages
         get().set("Accept","&2[ПРИНЯТЬ] |");
         get().set("Decline","§c| [ОТКЛОНИТЬ]");
         get().set("TownName1", "§6Город ");
         get().set("AcceptMsg","&2Вы примите заявку");
         get().set("DeclineMsg","§cВы отклоните заявку");
-        get().set("TimePrep","&2Началась подготовка, осталось - [%s]");
-        get().set("TimeRemi","&2Начался рейд, осталось -  [%s]");
+        get().set("TimePrep","&6Началась подготовка, осталось - [%s]");
+        get().set("TimeRemi","&6Начался рейд, осталось -  [%s]");
         get().set("InviteMessages","§6Вы отправили предложение на вступление в рейд");
         get().set("-MemderRaid","§6Вы отклонили предложение на рейд!");
         get().set("StartRaid","§6Город [%s] начал рейд на город [%s], до нападения осталось - %s");
@@ -93,8 +93,11 @@ public class RuLang {
         get().set("MinPlayer","§4В городе [%s] должно быть [%s] игроков в сети для начала рейда!");
         get().set("ProtectTown","§4У города [%s] защита от нападения. Осталось [%s]");
         get().set("TownNotExists","§4Такого города нету!");
+        get().set("Moment","§6%s");
         get().set("OnlyMayor","§4Рейд может начать только мэр города");
         get().set("OnlyResident","§4Вы не житель города!");
+        get().set("TownDontForce","§4Город не начинал рейд!");
+        get().set("TownDontOnline","§4Один из городов не в онлайне!");
         get().set("NotArguments","§4Недостаточно аргументов!");
         get().set("NotActiveRaid","§4У вас нет активных рейдов!");
         get().set("NotRaid","§4Вы еще не начали рейд!");

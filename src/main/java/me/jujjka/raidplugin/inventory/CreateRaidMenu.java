@@ -55,10 +55,9 @@ public class CreateRaidMenu implements InventoryHolder {
                         double xuesos = UtilPlayer.getOnlinePlayerForMembers(town) / UtilPlayer.getOnlinePlayerForMembers(townPlayer);
                         if (xuesos > Raidplugin.getInstance().getConfig().getDouble("RaidsPlugin.ratio_Players")) {
                             if(!resident.getTown().getName().equals(TownName)) {
-                                lore.add(LanguageMgr.getLang().getString("2"));
                                 lore.add(LanguageMgr.getLang().getString("TownElement").formatted(mayorName));
                                 lore.add(LanguageMgr.getLang().getString("RaidElement"));
-                                item = createItem(LanguageMgr.getLang().getString("TownName1") + TownName, Material.PLAYER_HEAD, lore);
+                                item = createItem(LanguageMgr.getLang().getString("Moment").formatted(TownName), Material.PLAYER_HEAD, lore);
                                 items.add(item);
                             }
 
